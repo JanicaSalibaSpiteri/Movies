@@ -96,6 +96,12 @@ namespace Movies.Server
 						{
 							options.RootDirectory = "movies.json";
 						})
+						//.AddAdoNetGrainStorage(name: "MovieStore", configureOptions: options =>
+						//{
+						//	options.Invariant = "System.Data.SqlClient";
+						//	options.ConnectionString = ctx.Configuration.GetConnectionString("DefaultConnection");
+						//	options.UseJsonFormat = true;
+						//})
 					;
 
 				})

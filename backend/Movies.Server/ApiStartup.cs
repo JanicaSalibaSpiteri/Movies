@@ -3,6 +3,7 @@ using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,6 +59,11 @@ namespace Movies.Server
 			.AddNewtonsoftJson();
 
 			services.AddMemoryCache();
+
+			services.AddDbContext<MovieContext>(options =>
+			{
+				options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
