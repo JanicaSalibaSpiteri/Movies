@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Gql\Types\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
