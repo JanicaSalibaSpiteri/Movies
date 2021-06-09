@@ -88,9 +88,9 @@ namespace Movies.Server
 								GatewayPort = 30001
 							}
 						})
-						//.ConfigureApplicationParts(parts => parts
-						//	.AddApplicationPart(typeof(SampleGrain).Assembly).WithReferences()
-						//)
+						.ConfigureApplicationParts(parts => parts
+							.AddApplicationPart(typeof(MoviesGrain).Assembly).WithReferences()
+						)
 						.AddIncomingGrainCallFilter<LoggingIncomingCallFilter>()
 					;
 

@@ -1,6 +1,7 @@
 ﻿using GraphQL.Server;
 using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
+using Movies.Server.Gql.Types;
 
 namespace Movies.Server.Gql.App
 {
@@ -16,7 +17,11 @@ namespace Movies.Server.Gql.App
 				.AddNewtonsoftJson();
 
 			services.AddSingleton<ISchema, AppSchema>();
+			services.AddSingleton<MoviesGraphQuery>();
+			services.AddSingleton<MoviesGraphMutation>();
 
+			services.AddSingleton<MovieGraphType>();
+			services.AddSingleton<MovieInputObject>();
 		}
 	}
 }
