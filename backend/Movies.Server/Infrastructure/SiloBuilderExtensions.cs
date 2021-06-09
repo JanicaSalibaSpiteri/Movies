@@ -1,7 +1,11 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Movies.Core;
+using Orleans;
 using Orleans.Configuration;
 using Orleans.Hosting;
+using Orleans.Runtime;
+using Orleans.Storage;
 using System;
 using System.Diagnostics;
 using System.Net;
@@ -91,6 +95,16 @@ namespace Movies.Server.Infrastructure
 			}
 
 			return siloBuilder;
+		}
+
+		public static ISiloBuilder AddFileGrainStorage(this ISiloBuilder siloBuilder, string providerName, Action<FileGrainStorageOptions> options) => siloBuilder.ConfigureServices(services => services.AddFileGrainStorage(providerName, options));
+
+		public static IServiceCollection AddFileGrainStorage(this IServiceCollection services, string providerName, Action<FileGrainStorageOptions> options)
+		{
+			services.AddOptions<FileGrainStorageOptions>(providerName).Configure(options);
+			return services
+				.AddSingletonNamedService(providerName, FileGrainStorageFactory.Create)
+				.AddSingletonNamedService(providerName, (s, n) => (ILifecycleParticipant<ISiloLifecycle>)s.GetRequiredServiceByName<IGrainStorage>(n));
 		}
 	}
 }

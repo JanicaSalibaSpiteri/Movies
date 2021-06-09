@@ -92,6 +92,10 @@ namespace Movies.Server
 							.AddApplicationPart(typeof(MoviesGrain).Assembly).WithReferences()
 						)
 						.AddIncomingGrainCallFilter<LoggingIncomingCallFilter>()
+						.AddFileGrainStorage("File", options =>
+						{
+							options.RootDirectory = "movies.json";
+						})
 					;
 
 				})

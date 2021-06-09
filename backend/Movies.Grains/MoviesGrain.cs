@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Movies.Grains
 {
-	[StorageProvider(ProviderName = "Default")]
+	[StorageProvider(ProviderName = "File")]
 	public class MoviesGrain : Grain<MovieState>, IMoviesGrain
 	{
 		public async Task<List<MovieModel>> GetAllMovies() => await Task.FromResult(State.Movies);
