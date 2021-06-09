@@ -3,14 +3,17 @@ using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Movies.Contracts;
 using Movies.Core;
 using Movies.GrainClients;
-using Movies.Server.Gql;
 using Movies.Server.Gql.App;
 using Movies.Server.Infrastructure;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Movies.Server
 {
@@ -53,12 +56,15 @@ namespace Movies.Server
 			services.AddAppGraphQL();
 			services.AddControllers()
 			.AddNewtonsoftJson();
+
+			services.AddMemoryCache();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(
 			IApplicationBuilder app,
-			IWebHostEnvironment env
+			IWebHostEnvironment env,
+			IMemoryCache cache
 		)
 		{
 			app.UseCors("TempCorsPolicy");
@@ -85,6 +91,12 @@ namespace Movies.Server
 			{
 				endpoints.MapControllers();
 			});
+
+			//Loading data in memory cache
+			var entryOptions = new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove);
+
+			var movies = JsonConvert.DeserializeObject<MovieState>(File.ReadAllText("movies.json"));
+			cache.Set("AllMovies", movies, entryOptions);
 		}
 	}
 }
