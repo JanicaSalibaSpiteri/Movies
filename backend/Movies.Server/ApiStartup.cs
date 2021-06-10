@@ -38,13 +38,7 @@ namespace Movies.Server
 			services.AddCustomAuthentication();
 			services.AddCors(o => o.AddPolicy("TempCorsPolicy", builder =>
 			{
-				builder
-					// .SetIsOriginAllowed((host) => true)
-					.WithOrigins("http://localhost:4200")
-					.AllowAnyMethod()
-					.AllowAnyHeader()
-					.AllowCredentials()
-					;
+				builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 			}));
 
 			// note: to fix graphql for .net core 3

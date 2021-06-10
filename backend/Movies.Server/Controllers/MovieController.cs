@@ -157,7 +157,7 @@ namespace Movies.Server.Controllers
 			return myMovies;
 		}
 
-		// GET api/movie/FilterByGenre/Horror
+		// GET api/movie/FilterByGenre/Action
 		[HttpGet("FilterByGenre/{genre}")]
 		[Route("FilterByGenre")]
 		public async Task<List<MovieModel>> FilterByGenre(string genre)
