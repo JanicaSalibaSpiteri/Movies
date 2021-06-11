@@ -18,9 +18,10 @@ The project also includes a Graph Query and Graph Mutation using **GraphQL** for
 Attempt to use **ADO.NET grain storage**, with DB entities and models, creation of DB and sample data in DB context through migrations script written in powershell.
 
 ## Installation
-1.  Change API path in `frontend/src/shared/path.js` to point to the hosted microservice
-2.  Navigate to the root folder of frontend and run `npm install` to install the required dependencies
-3.  Run the frontend through the command `npm start`, which should automatically launch `http://localhost:3000`
+1.  Build and run the solution
+2.  If necessary, change API path in `frontend/src/shared/path.js` to point to the hosted microservice
+3.  Navigate to the root folder of frontend and run `npm install` to install the required dependencies
+4.  Run the frontend through the command `npm start`, which should automatically launch `http://localhost:3000`
 
 ## Running the Graph QL queries
 1. Navigate to `http://localhost:6600/ui/playground`
