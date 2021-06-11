@@ -1,0 +1,13 @@
+[
+  { "name": "Action" },
+  { "name": "Adventure" },
+  { "name": "Comedy" },
+  { "name": "Crime" },
+  { "name": "Biography" },
+  { "name": "Drama" },
+  { "name": "History" },
+  { "name": "Sport" },
+  { "name": "Mystery" },
+  { "name": "Thriller" },
+  { "name": "Scifi" }
+]

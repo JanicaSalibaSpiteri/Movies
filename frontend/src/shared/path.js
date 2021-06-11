@@ -1,0 +1,1 @@
+export const CONTEXT = 'http://localhost:6600';
