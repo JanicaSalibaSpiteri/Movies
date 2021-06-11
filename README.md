@@ -3,7 +3,7 @@ This project includes a movies microservice built using **.NET Core** and **Micr
 
 On application startup, all the movies are loaded from the DB (json file) and stored in Memory Cache for faster retrieval during the runtime of the application. 
 
-The project also includes a Graph Query and Graph Mutation using **GraphQL** for the key features listed below.
+This project also includes a Graph Query and Graph Mutation using **GraphQL** for the key features listed below.
 
 ## Features
 - Add new movie
@@ -15,7 +15,8 @@ The project also includes a Graph Query and Graph Mutation using **GraphQL** for
 - List details for a selected movie
 
 ## Extras
-Attempt to use **ADO.NET grain storage**, with DB entities and models, creation of DB and sample data in DB context through migrations script written in powershell.
+- Attempt to use **ADO.NET grain storage**, with DB entities and models, creation of DB and sample data in DB context through migrations script written in powershell.
+- Application has been **Dockerized**
 
 ## Installation
 1.  Build and run the solution
