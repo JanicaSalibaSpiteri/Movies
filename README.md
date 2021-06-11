@@ -19,14 +19,17 @@ This project also includes a Graph Query and Graph Mutation using **GraphQL** fo
 - Application has been **Dockerized**
 
 ## Installation
-1.  Build and run the solution
-2.  If necessary, change API path in `frontend/src/shared/path.js` to point to the hosted microservice
-3.  Navigate to the root folder of frontend and run `npm install` to install the required dependencies
+1.  For the backend, build and run the solution
+2.  If necessary, change the API path in `frontend/src/shared/path.js` to point to the hosted microservice
+3.  Navigate to the root folder of the frontend and run `npm install` to install the required dependencies (make sure to have node already installed)
 4.  Run the frontend through the command `npm start`, which should automatically launch `http://localhost:3000`
 
 ## Running the Graph QL queries
-1. Navigate to `http://localhost:6600/ui/playground`
-2. Sample query for getting all movies, searching by name, filtering by genre and getting top 5 movies. 
+1. Build and run the solution
+2. Navigate to `http://localhost:6600/ui/playground`
+
+### Sample queries
+1. Sample query for getting all movies, searching by name, filtering by genre and getting top 5 movies. 
 The following one is without arguments, used to get all the movies. You can also pass one of the following arguments:
 - `name: "deadpool"` to search by name
 - `genre: "action"` to filter by genre
@@ -44,7 +47,7 @@ query getAllMovies {
   }  
 }
 ```
-3. Sample query for getting the movie details for a specific movie
+2. Sample query for getting the movie details for a specific movie
 ```
 query getMovieById{
   movie(id:"1") {
@@ -58,7 +61,7 @@ query getMovieById{
   }
 }
 ``` 
-4. Sample mutation for adding a new movie
+3. Sample mutation for adding a new movie
 ```
 mutation addMovie($movie: MovieInput!) {
   addMovie(movie: $movie) {
@@ -79,7 +82,7 @@ Query variables
   }
 }
 ```
-5. Sample mutation for updating an existing movie
+4. Sample mutation for updating an existing movie
 ```
 mutation updateMovie($movie: MovieInput!) {
   updateMovie(movie: $movie) {
