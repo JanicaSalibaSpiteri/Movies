@@ -74,8 +74,8 @@ namespace Movies.Server.Controllers
 			}
 		}
 
-		// POST api/movie/1
-		[HttpPost("{id}")]
+		// PUT api/movie/1
+		[HttpPut("{id}")]
 		[Consumes(MediaTypeNames.Application.Json)]
 		public async Task UpdateMovie([FromRoute] string id, [FromBody] MovieModel movie)
 		{
