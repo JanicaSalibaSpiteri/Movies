@@ -56,8 +56,8 @@ namespace Movies.Server.Controllers
 
 			//If cache is empty, or cache is populated and values are different than the ones in storage,
 			//then update the cache
-			if (allMoviesCache.Movies == null ||
-				(allMoviesCache.Movies != null && allMoviesCache.Movies.Count() > 0 && allMoviesCache.Movies != allMovies))
+			if (allMoviesCache == null ||
+				(allMoviesCache != null && allMoviesCache.Movies.Count() > 0 && allMoviesCache.Movies != allMovies))
 			{
 				var cacheExpirationOptions = new MemoryCacheEntryOptions
 				{

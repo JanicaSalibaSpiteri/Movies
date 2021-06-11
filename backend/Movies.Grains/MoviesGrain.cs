@@ -15,11 +15,11 @@ namespace Movies.Grains
 
 		public async Task<List<MovieModel>> GetTop5Movies() => await Task.FromResult(State.Movies.OrderByDescending(x => x.Rating).Take(5).ToList());
 
-		public async Task<List<MovieModel>> SearchByName(string name) => (List<MovieModel>)await Task.FromResult(State.Movies.Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList());
+		public async Task<List<MovieModel>> SearchByName(string name) => await Task.FromResult(State.Movies.Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList());
 
-		public async Task<List<MovieModel>> FilterByGenre(string genre) => (List<MovieModel>)await Task.FromResult(State.Movies.Where(x => x.Genres.Contains(genre, StringComparer.OrdinalIgnoreCase)).ToList());
+		public async Task<List<MovieModel>> FilterByGenre(string genre) => await Task.FromResult(State.Movies.Where(x => x.Genres.Contains(genre, StringComparer.OrdinalIgnoreCase)).ToList());
 
-		public async Task<MovieModel> GetMovieById(string id) => (MovieModel)await Task.FromResult(State.Movies.SingleOrDefault(x => x.Id == id));
+		public async Task<MovieModel> GetMovieById(string id) => await Task.FromResult(State.Movies.SingleOrDefault(x => x.Id == id));
 
 		public async Task CreateMovie(string name, string description, string length, decimal rating, string image, List<string> genres)
 		{
