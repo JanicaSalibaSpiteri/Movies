@@ -1,7 +1,9 @@
 # Movies
 This project includes a movies microservice built using **.NET Core** and **Microsoft Orleans**, and also a UI built using **React** and **Tailwind CSS**. 
 
-On application startup, all the movies are loaded from the DB (json file) and stored in Memory Cache for faster retrieval during the runtime of the application. 
+On application startup, all the movies are loaded from the json file and stored in Memory Cache for faster retrieval during the runtime of the application. 
+
+Unit tests were also implemented with mocked data, using **xUnit**.
 
 This project also includes a Graph Query and Graph Mutation using **GraphQL** for the key features listed below.
 
@@ -19,10 +21,11 @@ This project also includes a Graph Query and Graph Mutation using **GraphQL** fo
 - Application has been **Dockerized**
 
 ## Installation
-1.  For the backend, build and run the solution
-2.  If necessary, change the API path in `frontend/src/shared/path.js` to point to the hosted microservice
-3.  Navigate to the root folder of the frontend and run `npm install` to install the required dependencies (make sure to have node already installed)
-4.  Run the frontend through the command `npm start`, which should automatically launch `http://localhost:3000`
+1.  For the backend, open the solution and set `Movies.Server` as startup project
+2.  Build and run the solution
+3.  If necessary, change the API path in `frontend/src/shared/path.js` to point to the hosted microservice
+4.  Navigate to the root folder of the frontend and run `npm install` to install the required dependencies (make sure to have node already installed)
+5.  Run the frontend through the command `npm start`, which should automatically launch `http://localhost:3000`
 
 ## Running the Graph QL queries
 1. Build and run the solution
